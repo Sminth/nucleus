@@ -3,7 +3,8 @@
 @section('content')
 
 <p class="d-none d-lg-block" style="font-family:'cursives';font-size:25px;font-weight:bold;position: absolute;left:35%;top:50px;color:grey;text-transform:uppercase">Moteur de Recheche <span id="type-text" style="color: #003399"></span><span style="color: #003399" class="blinking-cursor">_</span></p>
-<p class="d-lg-none d-block" style="font-family:'cursives';font-size:15px;font-weight:bold;position: absolute;left:5%;top:50px;color:grey;text-transform:uppercase">Moteur de Recheche <span id="span" style="color: #003399"></span></p>
+<!-- mettre id="span" si y'a bug avec cette animation" -->
+<p class="d-lg-none d-block" style="font-family:'cursives';font-size:15px;font-weight:bold;position: absolute;left:5%;top:50px;color:grey;text-transform:uppercase">Moteur de Recheche <span id="type-text2" style="color: #003399"></span><span style="color: #003399" class="blinking-cursor">_</span></p>
 
 <div class="wrapper indexPage" >
     <div class="mainContainer">
@@ -55,24 +56,29 @@ function typeLoop() {
 // Source code 🚩
 
 const elementNode = document.getElementById('type-text')
+const elementNode2 = document.getElementById('type-text2')
 let text = ''
-
+let text2 = ''
 function updateNode () {
 elementNode.innerText = text
+elementNode2.innerText = text2
 }
 
 function pushCharacter (character) {
 text += character
+text2 += character
 updateNode()
 }
 
 function popCharacter () {
 text = text.slice(0, text.length -1)
+text2 = text2.slice(0, text2.length -1)
 updateNode()
 }
 
 function clearText () {
 text = ''
+text2 = ''
 updateNode()
 }
 
