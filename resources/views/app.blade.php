@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}" >
+
     <title>Nucleus</title>
     <style>
     .add {
@@ -45,8 +47,8 @@ background-size: cover;background-color:white;
     <div id="mybutton">
         <a href="{{route('view.upload')}}" target="_blank"><button class="add">+</button></a>
     </div>
-    <p class="d-none d-lg-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by team 7 of nucleus</i></p>
-    <p class="d-lg-none d-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by team 7 of nucleus</i></p>
+    <p class="d-none d-lg-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by nucleus</i></p>
+    <p class="d-lg-none d-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by nucleus</i></p>
 
 </body>
 </html>

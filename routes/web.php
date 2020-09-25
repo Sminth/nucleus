@@ -28,3 +28,8 @@ Route::get('/upload',function(){
 });   
 Route::get('/formulaire uploadfile',[UploadFileController::class,'index'])->name('view.upload');
 Route::post('/uploadfile',[UploadFileController::class,'showUploadFile'])->name('upload.file');
+
+Route::get('/admin',[IndexController::class,'admin'])->name('admin');
+
+Route::get('/suppression/{fichier}',[IndexController::class,'suppression'])->name('sup');
+Route::get('/editer/{fichier}',[IndexController::class,'editer'])->name('editer');

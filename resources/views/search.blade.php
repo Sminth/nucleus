@@ -163,12 +163,13 @@
                  </div>
             
                @endforeach
+               <div class="mt-5 mb-5 text-center text-lg-left ">
+                {{ $resultat->links() }}
+            </div>
             </div>
             </div>
             @endif
-            <div class="mt-5 mb-5 text-center text-lg-left ">
-                {{ $resultat->links() }}
-            </div>
+            
         </div>
         
     </div>

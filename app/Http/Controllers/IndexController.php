@@ -38,4 +38,20 @@ class IndexController extends Controller
         $fichier=fichiers::where('id',$id)->first();
         return view('page',compact('fichier','type'));
     }
+
+    public function admin(){
+        $fichiers=fichiers::orderBy('created_at','desc')->get();
+        $total_all=count(fichiers::all());
+        $total_doc=count(fichiers::where("type","document")->get());
+        $total_img=count(fichiers::where("type","image")->get());
+        $total_vid=count(fichiers::where("type","video")->get());
+        return view('admin',compact('fichiers','total_all','total_doc','total_img','total_vid'));
+    }
+    public function editer(fichiers $fichier){
+        return view('editer',compact('fichier'));
+    }
+    public function suppression(fichiers $fichier){
+        $fichier->delete();
+        return redirect()->back();
+    }
 }
