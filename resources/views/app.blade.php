@@ -43,7 +43,7 @@ background-size: cover;background-color:white;
         ">
     @yield('content')
     <div id="mybutton">
-        <a href="{{URL('uploadfile')}}" target="_blank"><button class="add">+</button></a>
+        <a href="{{route('view.upload')}}" target="_blank"><button class="add">+</button></a>
     </div>
     <p class="d-none d-lg-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by team 7 of nucleus</i></p>
     <p class="d-lg-none d-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by team 7 of nucleus</i></p>
