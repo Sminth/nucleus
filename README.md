@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/images/logo2" width="400"></a></p>
+<p align="center"><a href="https://bynucleus.herokuapp.com/" target="_blank"><img src="public/images/logo2.png" width="400"></a></p>
 
 ## About Nucleus Search
 
