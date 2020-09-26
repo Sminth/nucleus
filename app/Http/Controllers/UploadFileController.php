@@ -15,7 +15,7 @@ class UploadFileController extends Controller
      public function showUploadFile(Request $req) {
         
         $req->validate([
-            'file' => 'required|mimes:txt,csv,xls,xlsx,pdf,doc,docx,png,jpg,jpeg,mp4|max:200000'
+            'file' => 'required|mimes:txt,csv,xls,xlsx,pdf,doc,docx,png,jpg,jpeg,mp4|max:15000'
         ],$messages = [
             'mimes' => 'extension autorisé : csv,txt,xls,pdf,xlsx,doc,docx,png,jpg,jpeg,mp4',
             'max'   => 'taille du fichier <= 200 MB'
