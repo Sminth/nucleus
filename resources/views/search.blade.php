@@ -19,12 +19,12 @@
 
             <div class="searchContainer">
                 
-                <form action="{{URL('recherche')}}" method="GET">
+                <form id="myForm" action="{{URL('recherche')}}" method="GET" onsubmit="return verif()">
                     
                     <div class="searchBarContainer">
                         @csrf
-                        <input type="hidden" value="{{$type}}" name="type">
-                        <input class="searchBox" type="text" name="q" value="@php echo isset($q)? $q : '' @endphp">
+                        <input type="hidden" value="{{$type}}" name="type" >
+                        <input class="searchBox" id="search" type="text" name="q" value="@php echo isset($q)? $q : '' @endphp">
                         <button class="searchButton">
                             <img src="{{asset('images/search.png')}}">
                         </button>
@@ -35,7 +35,17 @@
             </div>
 
         </div>
-
+        <script type="text/javascript">
+        
+        function verif(){
+            var x = document.forms["myForm"]["search"].value;
+              // alert(x.trim());
+           if (x.trim() === "") {
+            //alert('Please enter Username and Password.');
+           return false;
+        }
+        return true}
+        </script>
         <div class="tabsContainer ml-9">
                 
             <ul class="tabList">

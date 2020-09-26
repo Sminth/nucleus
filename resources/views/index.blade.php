@@ -15,7 +15,7 @@
 
         <div class="searchContainer">
             
-            <form action="{{route('fichiers.recherche')}}" method="GET">
+            <form id="myForm" action="{{route('fichiers.recherche')}}" method="GET" onsubmit="return verif()">
                 <input class="searchBox" type="text" id="search" name="q" required placeholder="">
                 <input class="push_button mt-5" style="font-weight:bold" type="submit" value="RECHERCHER">
             </form>
@@ -25,7 +25,17 @@
     </div>
 
 </div>
+
 <script>
+  
+  function verif(){
+      var x = document.forms["myForm"]["search"].value;
+    
+     if (x.trim() === "") {
+     
+     return false;
+  }
+  return true}
     function init () {
 
 wait(1000).then(() => {
