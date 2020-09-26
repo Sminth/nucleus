@@ -42,7 +42,7 @@ class UploadFileController extends Controller
                     $type="document";$lien="documents/$fileName";
                 }
 
-               // fichiers::create(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
+               fichiers::create(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
     
                /* $fileModel->title = $req->name;
                
@@ -53,8 +53,8 @@ class UploadFileController extends Controller
                 $fileModel->type = $type;
                 
                 $fileModel->save();*/
-                DB::table('fichiers')->insert(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
-                dd($fileModel);
+               // DB::table('fichiers')->insert(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
+                //dd($fileModel);
                 User::create(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
     
                 return redirect()->back()
