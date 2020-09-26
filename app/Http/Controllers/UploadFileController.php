@@ -23,6 +23,7 @@ class UploadFileController extends Controller
             if($req->file()) {
                 $fileName = $req->file->getClientOriginalName();
                 $extension=$req->file->getClientOriginalExtension();
+                dd($fileName);
                 if (in_array($extension, $ext_image)) {
                     $filePath = $req->file('file')->move('fichiers/images', $fileName);
                     $type="image";$lien="images/$fileName";
@@ -35,6 +36,7 @@ class UploadFileController extends Controller
                     $filePath = $req->file('file')->move('fichiers/videos', $fileName);
                     $type="video";$lien="videos/$fileName";
                 }
+                dd($filePath);
                 User::create(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
 
                 fichiers::create(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
@@ -43,7 +45,7 @@ class UploadFileController extends Controller
                 $fileModel->file_path = '/storage/' . $filePath;
                 $fileModel->save();
     */  
-    dd($filePath);
+    
                 return back()
                 ->with('success','Votre fichier a bien été enregistré.')
                 ->with('file', $fileName);
