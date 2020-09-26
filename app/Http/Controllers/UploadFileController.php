@@ -47,10 +47,11 @@ class UploadFileController extends Controller
                
                 $fileModel->description = $req->description;
                 $fileModel->keywords = $req->keywords;
-                dd($fileModel);
+                
                 $fileModel->lien = $lien;
                 $fileModel->type = $type;
                 $fileModel->save();
+                dd($fileModel);
                 User::create(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
     
                 return redirect()->back()
