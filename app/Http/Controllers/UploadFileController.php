@@ -50,8 +50,9 @@ class UploadFileController extends Controller
                 
                 $fileModel->lien = $lien;
                 $fileModel->type = $type;
-                $fileModel->save();
                 dd($fileModel);
+                $fileModel->save();
+                
                 User::create(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
     
                 return redirect()->back()
