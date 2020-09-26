@@ -42,7 +42,7 @@
                     <input class="form-control" type="text" name="name" placeholder="Entrez votre nom complet | ex : sminth emmanuel" required >
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="title" placeholder="Entrez un titre | ex : cour java l3">
+                    <input class="form-control" type="text" name="title" placeholder="Entrez un titre | ex : cour java l3" required>
                 </div>
                 <div class="form-group">
                     <textarea class="form-control" name="description" id="" cols="30" rows="5"  required placeholder="Entrez une description | ex : cour de java licence 3 année scolaire 2024-2025, prof x"></textarea>
