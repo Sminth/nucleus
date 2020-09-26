@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\fichiers;
 use App\Models\User;
+use App\Models\fichiers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UploadFileController extends Controller
 {
@@ -43,16 +44,17 @@ class UploadFileController extends Controller
 
                // fichiers::create(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
     
-                $fileModel->title = $req->name;
+               /* $fileModel->title = $req->name;
                
                 $fileModel->description = $req->description;
                 $fileModel->keywords = $req->keywords;
                 
                 $fileModel->lien = $lien;
                 $fileModel->type = $type;
-                dd($fileModel);
-                $fileModel->save();
                 
+                $fileModel->save();*/
+                DB::table('fichiers')->insert(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
+                dd($fileModel);
                 User::create(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
     
                 return redirect()->back()
