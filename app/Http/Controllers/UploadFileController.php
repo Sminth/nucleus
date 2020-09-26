@@ -15,10 +15,10 @@ class UploadFileController extends Controller
      public function showUploadFile(Request $req) {
         
         $req->validate([
-            'file' => 'required|mimes:csv,txt,xls,pdf,doc,docx,png,jpg,jpeg,mp4|max:15000'
+            'file' => 'required|mimes:csv,txt,xls,pdf,doc,docx,png,jpg,jpeg,mp4,xlsx|max:15000'
             ]);
             $ext_image=array('png','jpg','jpeg');
-            $ext_doc=array('docx','doc','csv','txt','xls','pdf');
+            $ext_doc=array('docx','doc','csv','txt','xls','pdf','xlsx');
             $ext_video=array('mp4');
             $fileModel = new fichiers;
     
