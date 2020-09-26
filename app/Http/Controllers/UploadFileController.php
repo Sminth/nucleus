@@ -44,9 +44,10 @@ class UploadFileController extends Controller
                // fichiers::create(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
     
                 $fileModel->title = $req->name;
-                dd($fileModel);
+               
                 $fileModel->description = $req->description;
                 $fileModel->keywords = $req->keywords;
+                dd($fileModel);
                 $fileModel->lien = $lien;
                 $fileModel->type = $type;
                 $fileModel->save();
