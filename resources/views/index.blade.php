@@ -1,7 +1,15 @@
 @extends('app')
 
 @section('content')
-
+<style>
+  .blinking-cursor{
+    animation: blink-caret .75s step-end infinite;
+  }
+  @keyframes blink-caret {
+  from, to {color: transparent }
+  50% { color: #003399; }
+  }
+</style>
 <p class="d-none d-lg-block" style="font-family:'cursives';font-size:25px;font-weight:bold;position: absolute;left:35%;top:50px;color:grey;text-transform:uppercase">Moteur de Recheche <span id="type-text" style="color: #003399"></span><span style="color: #003399" class="blinking-cursor">_</span></p>
 <!-- mettre id="span" si y'a bug avec cette animation" -->
 <p class="d-lg-none d-block" style="font-family:'cursives';font-size:15px;font-weight:bold;position: absolute;left:5%;top:50px;color:grey;text-transform:uppercase">Moteur de Recheche <span id="type-text2" style="color: #003399"></span><span style="color: #003399" class="blinking-cursor">_</span></p>
