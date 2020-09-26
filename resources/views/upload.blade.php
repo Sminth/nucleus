@@ -39,17 +39,17 @@
           @endif
             <div style="background:white;padding:20px">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name" placeholder="Entrez votre nom complet | ex : sminth emmanuel" required >
+                    <input class="form-control" type="text" name="name" placeholder="Entrez votre nom complet | ex : sminth emmanuel" value="{{ old('name') }}" required autocomplete="name" autofocus >
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="title" placeholder="Entrez un titre | ex : cour java l3" required>
+                    <input class="form-control" type="text" name="title" placeholder="Entrez un titre | ex : cour java l3" value="{{ old('title') }}" required autofocus>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" name="description" id="" cols="30" rows="5"  required placeholder="Entrez une description | ex : cour de java licence 3 année scolaire 2024-2025, prof x"></textarea>
+                    <textarea class="form-control" name="description" id="" cols="30" rows="5"  value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Entrez une description | ex : cour de java licence 3 année scolaire 2024-2025, prof x"></textarea>
                    
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="keywords"  required placeholder="Entrez des mots clés | ex : l3, cour ja, ji 2k21, prof x">
+                    <input class="form-control" type="text" name="keywords"  value="{{ old('keywords') }}" required autofocus placeholder="Entrez des mots clés | ex : l3, cour ja, ji 2k21, prof x">
                 </div>
             <div class="custom-file">
                 <input type="file" name="file" class="custom-file-input" id="chooseFile" required >
