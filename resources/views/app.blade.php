@@ -48,8 +48,8 @@ background-size: cover;background-color:white;
     <div id="mybutton">
         <a href="{{route('view.upload')}}" target="_blank"><button class="add">+</button></a>
     </div>
-    <p class="d-none d-lg-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by nucleus</i></p>
-    <p class="d-lg-none d-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by nucleus</i></p>
+    <a href="{{url('/sminth')}}"> <p class="d-none d-lg-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by nucleus</i></p></a>
+    <a href="{{url('/sminth')}}"><p class="d-lg-none d-block" id="ap" style="font-weight:bold;"><i style="color: red;font-size:25px">♥</i><i style="color:#003399">  by nucleus</i></p></a>
 
 </body>
 </html>

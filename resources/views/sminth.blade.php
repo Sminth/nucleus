@@ -20,7 +20,7 @@
     text-transform: Uppercase;
     margin-bottom: .5em;
     font-family: 'Rubik', sans-serif;
-    font-size: 6rem;
+    font-size: 4rem;
     color: #E4E5E6; }
     
     h1 {
@@ -46,7 +46,7 @@
     mix-blend-mode: multiply; }
     
     h2 {
-    margin-top: -1.15em;
+    margin-top: -1.10em;
     font-family: 'Pirata One', cursive;
     font-size: 3rem;
     color: #F7971E;
@@ -54,12 +54,20 @@
     
     h2 spam {
       font-size: .5em; 
-    }</style>
+    }
+    p{
+      font-size: 20px;
+    color: white;
+    text-align: center;}
+    }
+    
+    </style>
 <body>
     <header>
-      <h1 data-text="back in black">back in black</h1>
+      <h1 data-text="nucleus">nucleus</h1>
       
       <h2>smi<spam>⚡</spam>nth</h2>
+      <p class="text">emmanuelmalan225@gmail.com</p>
     </header>
 
 </body>
