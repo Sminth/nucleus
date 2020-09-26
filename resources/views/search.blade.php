@@ -101,7 +101,7 @@
         </div>
         @endforeach
         <div class="mt-5 mb-5 text-center text-lg-left ">
-            {{ $resultat->links() }}
+            {{ $resultat->links('pagination::bootstrap-4') }}
         </div>
     </div>
     
@@ -174,7 +174,7 @@
             
                @endforeach
                <div class="mt-5 mb-5 text-center text-lg-left ">
-                {{ $resultat->links() }}
+                {{ $resultat->links('pagination::bootstrap-4') }}
             </div>
             </div>
             </div>
