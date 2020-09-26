@@ -23,7 +23,7 @@ class UploadFileController extends Controller
             if($req->file()) {
                 $fileName = $req->file->getClientOriginalName();
                 $extension=$req->file->getClientOriginalExtension();
-                dd($fileName);
+                
                 if (in_array($extension, $ext_image)) {
                     $filePath = $req->file('file')->move('fichiers/images', $fileName);
                     $type="image";$lien="images/$fileName";
