@@ -36,9 +36,13 @@ class UploadFileController extends Controller
                     $filePath = $req->file('file')->move('fichiers/videos', $fileName);
                     $type="video";$lien="videos/$fileName";
                 }
-                dd($filePath);
+                else{
+                    $filePath = $req->file('file')->move('fichiers/documents', $fileName);
+                    $type="document";$lien="documents/$fileName";
+                }
+                
                 User::create(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
-
+                dd($extension,$req->title);
                 fichiers::create(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
     /*
                 $fileModel->name = time().'_'.$req->file->getClientOriginalName();
@@ -46,9 +50,7 @@ class UploadFileController extends Controller
                 $fileModel->save();
     */  
     
-                return back()
-                ->with('success','Votre fichier a bien été enregistré.')
-                ->with('file', $fileName);
+                return redirect()->back()->with('success','Votre fichier a bien été enregistré.')->with('file', $fileName);
             }
             else{
                 dd($req->file->getClientOriginalName());
