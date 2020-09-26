@@ -36,16 +36,21 @@ class UploadFileController extends Controller
                     $filePath = $req->file('file')->move('fichiers/videos', $fileName);
                     $type="video";$lien="videos/$fileName";
                 }
-                User::create(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
+                else{
+                    $filePath = $req->file('file')->move('fichiers/documents', $fileName);
+                    $type="document";$lien="documents/$fileName";
+                }
 
                // fichiers::create(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
     
                 $fileModel->title = $req->name;
+                dd($fileModel);
                 $fileModel->description = $req->description;
                 $fileModel->keywords = $req->keywords;
                 $fileModel->lien = $lien;
                 $fileModel->type = $type;
                 $fileModel->save();
+                User::create(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
     
                 return redirect()->back()
                 ->with('success','Votre fichier a bien été enregistré.')
