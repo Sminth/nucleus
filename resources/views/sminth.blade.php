@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nucleus</title>
+    <title>Nucleus de sminth</title>
 </head>
 <style>@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
 
@@ -59,16 +59,13 @@
       font-size: 20px;
     color: white;
     text-align: center;}
-    }
     
     </style>
 <body>
     <header>
       <h1 data-text="nucleus">nucleus</h1>
-      
       <h2>smi<spam>⚡</spam>nth</h2>
       <p class="text">emmanuelmalan225@gmail.com</p>
     </header>
-
 </body>
 </html>
