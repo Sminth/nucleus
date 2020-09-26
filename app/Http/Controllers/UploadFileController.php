@@ -12,14 +12,14 @@ class UploadFileController extends Controller
         return view('upload');
      }
      public function showUploadFile(Request $req) {
-        dd($req);
+      //  dd($req);
         $req->validate([
             'file' => 'required|mimes:csv,txt,xls,pdf,doc,docx,png,jpg,jpeg,mp4|max:15000'
             ]);
             $ext_image=array('png','jpg','jpeg');
             $ext_doc=array('docx','doc','csv','txt','xls','pdf');
             $ext_video=array('mp4');
-    
+            
             if($req->file()) {
                 $fileName = $req->file->getClientOriginalName();
                 $extension=$req->file->getClientOriginalExtension();
@@ -42,10 +42,14 @@ class UploadFileController extends Controller
                 $fileModel->name = time().'_'.$req->file->getClientOriginalName();
                 $fileModel->file_path = '/storage/' . $filePath;
                 $fileModel->save();
-    */
+    */  
+    dd($filePath);
                 return back()
                 ->with('success','Votre fichier a bien été enregistré.')
                 ->with('file', $fileName);
+            }
+            else{
+                dd($req->file->getClientOriginalName());
             }
         }
   }
