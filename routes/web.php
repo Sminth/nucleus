@@ -27,7 +27,7 @@ Route::get('/upload',function(){
     return view('upload');
 });   
 Route::get('/formulaire uploadfile',[UploadFileController::class,'index'])->name('view.upload');
-Route::post('/uploadfile',[UploadFileController::class,'uploadFile'])->name('upload.file');
+Route::post('/uploadfile',[UploadFileController::class,'showUploadFile'])->name('upload.file');
 
 Route::get('/admin_nucleus',[IndexController::class,'admin'])->name('admin');
 

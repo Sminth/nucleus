@@ -11,8 +11,8 @@ class UploadFileController extends Controller
     public function index() {
         return view('upload');
      }
-     public function uploadFile(Request $req) {
-        //dd($req);
+     public function showUploadFile(Request $req) {
+        dd($req);
         $req->validate([
             'file' => 'required|mimes:csv,txt,xls,pdf,doc,docx,png,jpg,jpeg,mp4|max:15000'
             ]);
