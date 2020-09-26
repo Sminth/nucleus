@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="moteur de recherche nucleus, fait specialement pour les étudiants de la filière professionnel MIAGE-GI pour stocker en un seul endroit tous les documents pdf, word, excel.. des differents niveau, aussi stocker des photos, videos de la ji, des professeurs, des etudiants etc ..."/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}" >
