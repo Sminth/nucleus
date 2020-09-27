@@ -11,15 +11,26 @@ class IndexController extends Controller
     public function search(){
         $q=request()['q'];
         $type = isset(request()["type"]) ? request()["type"] : "all";
+
         if ($type=="all") {
-            $resultat=fichiers::where(function ($query) use($q) {
-                $query->where('title','LIKE','%'.$q.'%')
-                    ->orwhere('description','LIKE','%'.$q.'%')
-                    ->orwhere('keywords','LIKE','%'.$q.'%')
-                    ->orwhere('lien','LIKE','%'.$q.'%');
-            })->paginate(8);
+            if ($q==":all") {
+                $resultat=fichiers::paginate(8);
+            }
+            else{
+                $resultat=fichiers::where(function ($query) use($q) {
+                    $query->where('title','LIKE','%'.$q.'%')
+                        ->orwhere('description','LIKE','%'.$q.'%')
+                        ->orwhere('keywords','LIKE','%'.$q.'%')
+                        ->orwhere('lien','LIKE','%'.$q.'%');
+                })->paginate(8);
+            }
+            
         }
        else{
+        if ($q==":all") {
+            $resultat=fichiers::where('type',$type)->paginate(8);
+        }
+        else{
         $resultat=fichiers::where(function ($query) use($type) {
             $query->where('type',$type);
         })->where(function ($query) use($q) {
@@ -29,7 +40,7 @@ class IndexController extends Controller
                 ->orwhere('lien','LIKE','%'.$q.'%');
         })->paginate(8);
        }
-        
+    }
         return view('search',compact('resultat','type','q'));
     }
 

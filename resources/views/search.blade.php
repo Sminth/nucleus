@@ -79,7 +79,7 @@
         
         <p></p>
         <?php 
-        $numResults=count($resultat);
+        $numResults=$resultat->total();
         echo "<p class='resultsCount'>$numResults résultat(s) trouvés</p>";
         ?>
         <div class='siteResults'>
@@ -110,7 +110,7 @@
     <div class="mainResultsSection">
         <p></p>
         <?php 
-        $numResults=count($resultat);
+        $numResults=$resultat->total();
         echo "<p class='resultsCount'>$numResults résultat(s) trouvés</p>";
         ?>
         @if ($type!='image')
