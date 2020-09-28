@@ -19,7 +19,7 @@
 
     <div class="container mt-5">
 
-        <form action="{{route('upload.file')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('upload.update')}}" method="post" enctype="multipart/form-data">
           <h3 class="text-center mb-5">ENREGISTRER UN FICHIER</h3>
             @csrf
             @if ($message = Session::get('success'))
@@ -39,10 +39,13 @@
           @endif
             <div style="background:white;padding:20px">
                 @php
-                       $user= App\Models\User::where('titre_fichier_ajouter',$fichier->title)->first()->name ?? 'admin';
+                       $user= App\Models\User::where('titre_fichier_ajouter',$fichier->title)->first();
+                
                 @endphp
+                <input type="hidden" name="user_id" value="{{$user->id}}">
+
                 <div class="form-group">
-                    <input value="{{$user}}" class="form-control" type="text" name="name" placeholder="Entrez votre nom complet | ex : sminth emmanuel" required >
+                    <input value="{{$user->name}}" class="form-control" type="text" name="name" placeholder="Entrez votre nom complet | ex : sminth emmanuel" required >
                 </div>
                 <div class="form-group">
                     <input value="{{$fichier->title}}" class="form-control" type="text" name="title" placeholder="Entrez un titre | ex : cour java l3">
@@ -55,14 +58,25 @@
                     <input value="{{$fichier->keywords}}" class="form-control" type="text" name="keywords"  required placeholder="Entrez des mots clés | ex : l3, cour ja, ji 2k21, prof x">
                 </div>
             <div class="custom-file">
-                <input type="file" name="file" class="custom-file-input" id="chooseFile" required >
-                <label class="custom-file-label" for="chooseFile">Selectionner votre fichier | </label>
+                <input type="file" name="file" class="custom-file-input" id="chooseFile" >
+                @php
+                    $nom_fichier=explode("/", $fichier->lien);
+                @endphp
+                <label class="custom-file-label" for="chooseFile">{{$nom_fichier[1]}} | </label>
             </div>
-
+            <input type="hidden" name="id" value="{{$fichier->id}}">
             <button type="submit" name="submit" class="btn btn-outline-dark btn-block mt-4">
                 VALIDER
             </button>
             </div>
         </form>
     </div>
+    <script>
+        $('#chooseFile').on('change',function(e){
+            //get the file name
+            var fileName = e.target.files[0].name;
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(fileName);
+        })
+    </script>
 @endsection

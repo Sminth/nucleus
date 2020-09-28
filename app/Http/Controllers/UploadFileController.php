@@ -11,8 +11,8 @@ class UploadFileController extends Controller
 {
     public function index() {
         return view('upload');
-     }
-     public function showUploadFile(Request $req) {
+    }
+    public function showUploadFile(Request $req) {
         
         $req->validate([
             'file' => 'required|mimes:txt,csv,xls,xlsx,pdf,doc,docx,png,jpg,jpeg,mp4,zip,rar|max:200000'
@@ -23,7 +23,7 @@ class UploadFileController extends Controller
             $ext_image=array('png','jpg','jpeg');
             $ext_doc=array('docx','doc','csv','txt','xls','pdf','xlsx','zip','rar');
             $ext_video=array('mp4');
-            //$fileModel = new fichiers;
+            $fileModel = new fichiers;
     
             if($req->file()) {
                 $fileName = $req->file->getClientOriginalName();
@@ -64,5 +64,48 @@ class UploadFileController extends Controller
                 ->with('success','Votre fichier a bien été enregistré.')
                 ->with('file', $fileName);
             }
+           
+        }
+        public function UpdateUploadFile(Request $req){
+            
+                $ext_image=array('png','jpg','jpeg');
+                $ext_doc=array('docx','doc','csv','txt','xls','pdf','xlsx','zip','rar');
+                $ext_video=array('mp4');
+                if($req->file()) {
+                    $req->validate([
+                        'file' => 'required|mimes:txt,csv,xls,xlsx,pdf,doc,docx,png,jpg,jpeg,mp4,zip,rar|max:200000'
+                    ],$messages = [
+                        'mimes' => 'extension autorisé : csv,txt,xls,pdf,xlsx,doc,docx,png,jpg,jpeg,mp4,zip,rar',
+                        'max'   => 'taille du fichier <= 150 MB'
+                    ]);
+                    $fileName = $req->file->getClientOriginalName();
+                    $extension=$req->file->getClientOriginalExtension();
+                    if (in_array($extension, $ext_image)) {
+                        $filePath = $req->file('file')->move('fichiers/images', $fileName);
+                        $type="image";$lien="images/$fileName";
+                    }
+                    elseif(in_array($extension, $ext_doc)){
+                        $filePath = $req->file('file')->move('fichiers/documents', $fileName);
+                        $type="document";$lien="documents/$fileName";
+                    }
+                    elseif(in_array($extension, $ext_video)){
+                        $filePath = $req->file('file')->move('fichiers/videos', $fileName);
+                        $type="video";$lien="videos/$fileName";
+                    }
+                    else{
+                        $filePath = $req->file('file')->move('fichiers/documents', $fileName);
+                        $type="document";$lien="documents/$fileName";
+                    }
+    
+                    fichiers::where('id',$req->id)->update(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords,"lien"=>$lien,"type"=>$type]);
+                    User::where('id',$req->user_id)->update(["name"=>$req->name,"titre_fichier_ajouter"=>$req->title]);
+                    
+                }
+                else {
+                    fichiers::where('id',$req->id)->update(["title"=>$req->title,"description"=>$req->description,"keywords"=>$req->keywords]);
+                    User::where('id',$req->user_id)->update(["name"=>$req->name]);
+
+                }
+                return redirect()->route('admin');
         }
   }
