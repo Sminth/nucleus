@@ -69,12 +69,10 @@
                     <td>{{$item->keywords}}</td>
                     <td>{{$item->type}}</td>
                     <td>{{$user}}</td>
-              
                     <td>
-                        <!--<a href="" target=_blank class="btn btn-outline-secondary"><i class="fa fa-eye"></i></a>-->
+                        <!-- <a href="" target=_blank class="btn btn-outline-secondary"><i class="fa fa-eye"></i></a> -->
                         <a href="{{route('editer',[$item->id])}}" ><i class="fa fa-edit"></i></a>
-                        <a href="{{route('sup',[$item->id])}}"  style="color: black"><i class="fa fa-trash"></i></a>
-                                                    
+                        <a href="{{route('sup',[$item->id])}}"  style="color: black"><i class="fa fa-trash"></i></a>                 
                     </td>
                   </tr>
                   @endforeach
