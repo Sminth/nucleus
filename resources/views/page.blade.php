@@ -31,12 +31,9 @@
                 <span>→ tag : {{$fichier->keywords}}</span>
             </div>
             <div style="position: absolute;top:80%">
-                @if($fichier->type=="image" || $fichier->type=="video" )
+               <!--if($fichier->type=="image" || $fichier->type=="video" )-->
                     <a href="{{asset('fichiers/'.$fichier->lien)}}" class="btn btn-outline-dark" download>TELECHARGER</a>
-                @else
-                <a href="{{asset('fichiers/'.$fichier->lien)}}" class="btn btn-outline-dark" >TELECHARGER</a>
-
-                @endif
+               
             </div>
         </div>
     </div>
