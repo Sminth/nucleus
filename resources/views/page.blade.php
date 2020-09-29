@@ -31,7 +31,12 @@
                 <span>→ tag : {{$fichier->keywords}}</span>
             </div>
             <div style="position: absolute;top:80%">
-                <a href="{{asset('fichiers/'.$fichier->lien)}}" download class="btn btn-outline-dark">TELECHARGER</a>
+                @if($fichier->type=="image" || $fichier->type=="video" )
+                    <a href="{{asset('fichiers/'.$fichier->lien)}}" class="btn btn-outline-dark" download>TELECHARGER</a>
+                @else
+                <a href="{{asset('fichiers/'.$fichier->lien)}}" class="btn btn-outline-dark" >TELECHARGER</a>
+
+                @endif
             </div>
         </div>
     </div>
